@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Open Me 💌</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #ffc0cb, #ff9aa2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .envelope {
+    width: 260px;
+    height: 180px;
+    background: #ff6f91;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.5s;
+  }
+
+  .envelope:before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 130px solid transparent;
+    border-right: 130px solid transparent;
+    border-bottom: 90px solid #ff6f91;
+  }
+
+  .letter {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: white;
+    top: 5%;
+    left: 5%;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+  }
+
+  .open .letter {
+    transform: scale(1);
+  }
+
+  h2 {
+    color: #ff4d6d;
+  }
+
+  .bitmoji {
+    width: 90px;
+    border-radius: 50%;
+    margin: 10px 0;
+  }
+
+  .buttons {
+    margin-top: 10px;
+    position: relative;
+    height: 60px;
+  }
+
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.3s;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+    left: 10%;
+  }
+
+  #noBtn {
+    background: #999;
+    color: white;
+    right: 10%;
+  }
+
+  .message {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ff4d6d;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="envelope" onclick="openLetter(this)">
+  <div class="letter">
+    <h2>Will you be my Valentine? 💖</h2>
+
+    <img src="https://via.placeholder.com/100" class="bitmoji" alt="Her Bitmoji">
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="sayYes()">Yes Pooku Baby 💕</button>
+      <button id="noBtn" onmouseover="moveNo()">No 🙄</button>
+    </div>
+
+    <div class="message" id="loveMsg">YAYYYY I KNEW IT 😘💘</div>
+  </div>
+</div>
+
+<script>
+function openLetter(el) {
+  el.classList.add("open");
+}
+
+function sayYes() {
+  document.getElementById("loveMsg").style.display = "block";
+}
+
+function moveNo() {
+  let btn = document.getElementById("noBtn");
+  let x = Math.random() * 150 - 75;
+  let y = Math.random() * 80 - 40;
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+</script>
+
+</body>
+</html>
